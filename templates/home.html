@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Hospitales</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Hospitales Registrados</h1>
+        <ul>
+            {% for hospital in hospitales %}
+            <li>{{ hospital[1] }} - {{ hospital[2] }} - Teléfono: {{ hospital[3] }} </li>
+            {% endfor %}
+        </ul>
+        <a href="/register">Registrar un nuevo hospital</a>
+
+        <!-- Bloque de mensajes flash -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Hospital</title>
+</head>
+<body>
+    <h1>Registrar un nuevo Hospital</h1>
+    <form method="POST" action="/register">
+        <label for="nombre">Nombre del Hospital:</label><br>
+        <input type="text" id="nombre" name="nombre"><br><br>
+        <label for="direccion">Dirección:</label><br>
+        <input type="text" id="direccion" name="direccion"><br><br>
+        <label for="telefono">Teléfono:</label><br>
+        <input type="text" id="telefono" name="telefono"><br><br>
+        <!-- <label for="capacidad">Capacidad (número de camas):</label><br>
+        <input type="number" id="capacidad" name="capacidad"><br><br> -->
+        <input type="submit" value="Registrar">
+    </form>
+    <!-- Bloque de mensajes flash -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
